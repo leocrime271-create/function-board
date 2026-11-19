@@ -410,6 +410,41 @@ kbd {
 .alt-link:hover { color: var(--text); border-color: rgba(255, 255, 255, .6); }
 .hash-label { margin-top: 10px; font: 500 12px/1 var(--mono); color: var(--faint); }
 .installer-shot { margin: 34px auto 0; max-width: 640px; text-align: center; }
+.setup-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+.setup-gallery figure { margin: 0; }
+.setup-gallery img { width: 100%; border-radius: 10px; border: 1px solid var(--line2);
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .8), 0 0 50px -14px rgba(124, 58, 237, .35); transition: transform .5s var(--spring); }
+.setup-gallery figure:hover img { transform: translateY(-4px) scale(1.015); }
+.setup-gallery figcaption { margin-top: 12px; color: var(--muted); font-size: 14px; display: flex; gap: 10px; align-items: baseline; }
+.setup-gallery figcaption b { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  font: 700 12px/1 var(--mono); color: var(--violet2); background: rgba(139, 92, 246, .14); border: 1px solid rgba(139, 92, 246, .35); }
+.bundle {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: center;
+  margin-top: 64px; padding: 48px; border-radius: 30px; border: 1px solid var(--line);
+  background:
+    radial-gradient(70% 90% at 0% 0%, rgba(139, 92, 246, .13), transparent 60%),
+    radial-gradient(60% 80% at 100% 100%, rgba(24, 189, 112, .08), transparent 60%),
+    rgba(255, 255, 255, .015);
+}
+.bundle h2 { font-size: clamp(30px, 3.4vw, 46px); }
+.bundle-list { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 14px; }
+.bundle-list li { display: grid; grid-template-columns: 14px 1fr; gap: 14px; color: var(--muted); font-size: 15px; }
+.bundle-list b { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
+.bundle-list .dot { width: 10px; height: 10px; margin-top: 7px; border-radius: 50%; background: var(--c);
+  box-shadow: 0 0 12px var(--c); }
+.bundle-list .opt { font: 600 11px/1 var(--mono); color: var(--green); margin-left: 6px; letter-spacing: .04em; }
+.tree-wrap { min-width: 0; }
+.tree-title { font: 600 12px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin-bottom: 12px; }
+.tree {
+  margin: 0; padding: 22px 24px; border-radius: 18px; overflow-x: auto;
+  background: #0b0b0e; border: 1px solid var(--line2); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .8);
+  font: 13.5px/1.75 var(--mono); color: #c9cbd3;
+}
+.tree .t-dir { color: var(--yellow); }
+.tree .t-exe { color: var(--violet2); font-weight: 700; }
+.tree .t-c { color: var(--faint); }
+.tree-note { margin: 14px 0 0; font-size: 14px; color: var(--faint); }
+.tree-note b { color: var(--muted); }
 .installer-shot img { width: 100%; border-radius: 12px; border: 1px solid var(--line2);
   box-shadow: 0 40px 80px -24px rgba(0, 0, 0, .8), 0 0 60px -10px rgba(124, 58, 237, .35); }
 .installer-shot figcaption { margin-top: 14px; color: var(--faint); font-size: 14px; }
@@ -476,7 +511,9 @@ footer a:hover { color: var(--text); }
   .hero .wrap { grid-template-columns: 1fr; }
   .stage { padding-top: 10px; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .duo, .faq-layout, .setup { grid-template-columns: 1fr; }
+  .duo, .faq-layout, .setup, .bundle { grid-template-columns: 1fr; }
+  .bundle { padding: 34px 24px; }
+  .setup-gallery { grid-template-columns: 1fr 1fr; }
   .setup { padding: 34px 24px; }
   .faq-layout .section-head { position: static; }
   .sb-layout .list { grid-template-columns: repeat(2, 1fr); }
@@ -487,7 +524,8 @@ footer a:hover { color: var(--text); }
 @media (max-width: 760px) {
   section { padding: 80px 0; }
   .hero { padding-top: 36px; }
-  .grid-3, .grid-4, .downloads, .sb-layout .list { grid-template-columns: 1fr; }
+  .grid-3, .grid-4, .downloads, .sb-layout .list, .setup-gallery { grid-template-columns: 1fr; }
+  .tree { font-size: 12px; padding: 16px; }
   .card-wide { grid-column: auto; grid-template-columns: 1fr; }
   .card-wide img { width: 160px; margin: 0 auto -24px; }
   .dl { padding: 26px; }
@@ -873,6 +911,43 @@ footer a:hover { color: var(--text); }
       </div>
       <p class="dl-note reveal">Portabel: Lege die .exe in einen eigenen Ordner, z. B. <b>Dokumente\Function Board</b> – dort speichert sie auch
         ihre Einstellungen. Installiert liegen sie in <b>%APPDATA%</b> und bleiben bei Updates erhalten.</p>
+
+      <div class="bundle reveal" id="was-installiert-wird">
+        <div>
+          <span class="eyebrow"><span class="new-tag">NEU IN 2.4</span></span>
+          <h2>Das Setup bringt alles mit.</h2>
+          <p class="sub" style="font-size:17px">Wie bei einem großen Spiel kommt nicht nur die App, sondern alles, was dazugehört –
+            fertig eingerichtet, ohne dass du irgendetwas nachinstallieren musst.</p>
+          <ul class="bundle-list">
+            <li><span class="dot" style="--c:var(--violet)"></span><div><b>Das Programm mit allen Bibliotheken</b>
+              Function Board mit Python-Laufzeit, Qt-Oberfläche und allem, was es braucht – 177 Dateien, startet in rund einer Sekunde.</div></li>
+            <li><span class="dot" style="--c:var(--blue)"></span><div><b>Die Anleitung</b>
+              README mit allen Funktionen und Tastenkürzeln – auch im Startmenü unter „Function Board – Anleitung“.</div></li>
+            <li><span class="dot" style="--c:var(--green)"></span><div><b>Der komplette Quellcode <span class="opt">bei „Vollständig“</span></b>
+              main.py, start.bat, alle Module, Icon, Tests und die Build-Werkzeuge – genau wie im Projektordner.</div></li>
+            <li><span class="dot" style="--c:var(--yellow)"></span><div><b>Startmenü, Desktop-Symbol, Autostart</b>
+              Desktop-Symbol und Start mit Windows wählst du im Setup selbst aus.</div></li>
+            <li><span class="dot" style="--c:var(--orange)"></span><div><b>Sauber deinstallierbar</b>
+              Eintrag unter Einstellungen → Apps; deine Tasten bleiben auf Wunsch erhalten.</div></li>
+          </ul>
+        </div>
+        <div class="tree-wrap">
+          <div class="tree-title">So sieht dein Programmordner danach aus</div>
+<pre class="tree"><span class="t-dir">Function Board\</span>
+├── <span class="t-exe">FunctionBoard.exe</span>      <span class="t-c">das Programm</span>
+├── <span class="t-dir">_internal\</span>             <span class="t-c">Python, Qt, Bibliotheken</span>
+├── README.md              <span class="t-c">die Anleitung</span>
+├── unins000.exe           <span class="t-c">Deinstallation</span>
+│
+│   <span class="t-c">bei „Vollständig“ zusätzlich:</span>
+├── main.py · start.bat · requirements.txt
+├── <span class="t-dir">softdeck\</span>              <span class="t-c">der Quellcode</span>
+├── <span class="t-dir">assets\</span> · <span class="t-dir">tests\</span>
+└── <span class="t-dir">installer\</span>             <span class="t-c">Setup-Skripte</span></pre>
+          <p class="tree-note">Deine Tasten und Einstellungen liegen getrennt davon in <b>%APPDATA%\FunctionBoard</b> –
+            so bleiben sie bei jedem Update erhalten.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -907,10 +982,20 @@ footer a:hover { color: var(--text); }
             Neue Versionen meldet das Function Board danach selbst – ein Klick, und es ist aktuell.</p>
         </article>
       </div>
-      <figure class="installer-shot reveal">
-        <img src="assets/fb-installer.webp" width="612" height="471" alt="Das Setup des Function Board: Willkommensseite im dunklen Design mit Logo" loading="lazy" decoding="async">
-        <figcaption>So sieht das Setup aus – im gleichen dunklen Look wie die Apps.</figcaption>
-      </figure>
+      <div class="setup-gallery">
+        <figure class="reveal">
+          <img src="assets/fb-installer.webp" width="612" height="471" alt="Setup, Schritt 1: Willkommensseite mit Logo im dunklen Design" loading="lazy" decoding="async">
+          <figcaption><b>1</b> Willkommen – alles auf einen Blick</figcaption>
+        </figure>
+        <figure class="reveal" style="--d:.06s">
+          <img src="assets/fb-installer-components.webp" width="612" height="471" alt="Setup, Komponenten: Vollständig mit Programm, Anleitung und Quellcode oder nur das Programm" loading="lazy" decoding="async">
+          <figcaption><b>2</b> Wählen, was mitkommt – „Vollständig“ oder nur das Programm</figcaption>
+        </figure>
+        <figure class="reveal" style="--d:.12s">
+          <img src="assets/fb-installer-tasks.webp" width="612" height="471" alt="Setup, Zusatzaufgaben: Desktop-Symbol erstellen und mit Windows starten" loading="lazy" decoding="async">
+          <figcaption><b>3</b> Desktop-Symbol und Autostart ankreuzen – fertig</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -936,6 +1021,14 @@ footer a:hover { color: var(--text); }
           <div class="answer"><p>Windows SmartScreen warnt bei neuen Programmen, die noch nicht digital signiert sind. Über
             „Weitere Informationen“ → „Trotzdem ausführen“ startest du das Setup. Wer sichergehen will, vergleicht die
             SHA-256-Prüfsumme im Download-Bereich, z. B. mit <code>Get-FileHash .\FunctionBoard-Setup.exe</code> in PowerShell.</p></div>
+        </details>
+        <details class="reveal">
+          <summary>Was genau wird installiert?</summary>
+          <div class="answer"><p>Das Function Board als vollständiger Programmordner (Programm, Python-Laufzeit, Qt und alle
+            Bibliotheken), die Anleitung und – bei „Vollständig“ – der komplette Quellcode mit Tests und Build-Werkzeugen.
+            Nicht dabei sind persönliche Dinge: Deine Tasten legt die App beim ersten Start selbst in
+            <code>%APPDATA%\FunctionBoard</code> an. Wie der Ordner danach aussieht, siehst du
+            <a href="#was-installiert-wird">im Download-Bereich</a>.</p></div>
         </details>
         <details class="reveal">
           <summary>Kann ich aussuchen, wo die Datei gespeichert wird?</summary>
