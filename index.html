@@ -391,7 +391,20 @@ kbd {
 .meta li { font: 500 12.5px/1 var(--mono); color: var(--muted); padding: 8px 11px; border-radius: 9px; background: rgba(255, 255, 255, .045); border: 1px solid var(--line); }
 .news { margin: 0 0 26px; color: var(--muted); font-size: 15px; }
 .news b { color: var(--text); font-weight: 600; }
-.dl .btn { align-self: flex-start; margin-top: auto; }
+.dl .btn { align-self: flex-start; }
+.dl-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+.save-as[disabled] { opacity: .55; cursor: progress; transform: none; }
+.save-status { margin-top: 16px; }
+.save-bar { height: 8px; border-radius: 99px; background: rgba(255, 255, 255, .08); overflow: hidden; }
+.save-bar i { display: block; height: 100%; width: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--violet), var(--cyan)); transition: width .2s linear; }
+.save-status span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); }
+.save-status.ok span { color: var(--green); }
+.save-status.err span { color: #ff8a95; }
+.save-hint { margin-top: 16px; padding: 14px 16px; border-radius: 14px; font-size: 14px; color: var(--muted);
+  background: rgba(255, 255, 255, .04); border: 1px solid var(--line2); }
+.save-hint b { color: var(--text); font-weight: 600; }
+.save-hint ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 6px; }
 .alt-link { margin-top: 12px; font-size: 14px; color: var(--muted); text-decoration: none; width: fit-content;
   border-bottom: 1px dashed rgba(255, 255, 255, .25); transition: color .2s, border-color .2s; }
 .alt-link:hover { color: var(--text); border-color: rgba(255, 255, 255, .6); }
@@ -518,6 +531,7 @@ footer a:hover { color: var(--text); }
     <symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6.5 3.5h11v17l-5.5-3.8-5.5 3.8z"/></symbol>
     <symbol id="i-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12h3l2.5-6 4 12 3-9 2 3h4.5"/></symbol>
     <symbol id="i-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 0 18c1.3 0 1.8-.9 1.5-1.9-.4-1.2.4-2.6 1.8-2.6H18a3 3 0 0 0 3-3C21 7 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="11" cy="7.2" r="1.2" fill="currentColor"/><circle cx="15.6" cy="8.4" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-folder-save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 10.5v5M9.5 13l2.5 2.5 2.5-2.5"/></symbol>
     <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v12M7 10.5l5 5 5-5M4.5 20.5h15"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3.6-3.6a4 4 0 0 0-5.7-5.7L12 6.3"/><path d="M14 10a4 4 0 0 0-5.7 0l-3.6 3.6a4 4 0 0 0 5.7 5.7l1.6-1.6"/></symbol>
@@ -799,7 +813,20 @@ footer a:hover { color: var(--text); }
           </ul>
           <p class="news"><b>Neu in 2.3:</b> richtiger Installer, Updates direkt in der App und Tasten per Drag &amp; Drop auf
             andere Seiten ziehen. Seit 2.2: Einrichtungs-Assistent, drei Designs und Englisch.</p>
-          <a class="btn btn-primary" href="downloads/FunctionBoard-Setup.exe" download><svg><use href="#i-download"/></svg>Function Board installieren</a>
+          <div class="dl-actions">
+            <a class="btn btn-primary" href="downloads/FunctionBoard-Setup.exe" download><svg><use href="#i-download"/></svg>Function Board installieren</a>
+            <button class="btn save-as" type="button" data-file="downloads/FunctionBoard-Setup.exe" data-name="FunctionBoard-Setup.exe" data-size="55236648">
+              <svg><use href="#i-folder-save"/></svg>Speichern unter …</button>
+          </div>
+          <div class="save-status" hidden><div class="save-bar"><i></i></div><span></span></div>
+          <div class="save-hint" hidden>
+            <b>Dein Browser fragt hier leider nicht selbst nach dem Ort.</b> So wählst du ihn trotzdem:
+            <ul>
+              <li><b>Rechtsklick</b> auf „Function Board installieren“ → <b>„Link speichern unter …“</b> – dann den Ordner aussuchen.</li>
+              <li>Oder in den Browser-Einstellungen bei <b>Downloads</b> „<b>Vor dem Download fragen, wo gespeichert werden soll</b>“
+                einschalten (Firefox: „Jedes Mal nachfragen, wo eine Datei gespeichert werden soll“).</li>
+            </ul>
+          </div>
           <a class="alt-link" href="downloads/FunctionBoard.exe" download>oder portable .exe ohne Installation (51 MB)</a>
           <details class="hash">
             <summary>SHA-256-Prüfsummen</summary>
@@ -819,7 +846,20 @@ footer a:hover { color: var(--text); }
           </ul>
           <p class="news"><b>Neu in 2.0:</b> Einrichtungs-Assistent, drei Designs (MK II, Glas, Arcade) und Englisch als zweite
             Sprache – und jetzt auch mit richtigem Installer.</p>
-          <a class="btn btn-primary" href="downloads/SoundBoard-Setup.exe" download><svg><use href="#i-download"/></svg>Sound Board installieren</a>
+          <div class="dl-actions">
+            <a class="btn btn-primary" href="downloads/SoundBoard-Setup.exe" download><svg><use href="#i-download"/></svg>Sound Board installieren</a>
+            <button class="btn save-as" type="button" data-file="downloads/SoundBoard-Setup.exe" data-name="SoundBoard-Setup.exe" data-size="3087320">
+              <svg><use href="#i-folder-save"/></svg>Speichern unter …</button>
+          </div>
+          <div class="save-status" hidden><div class="save-bar"><i></i></div><span></span></div>
+          <div class="save-hint" hidden>
+            <b>Dein Browser fragt hier leider nicht selbst nach dem Ort.</b> So wählst du ihn trotzdem:
+            <ul>
+              <li><b>Rechtsklick</b> auf „Sound Board installieren“ → <b>„Link speichern unter …“</b> – dann den Ordner aussuchen.</li>
+              <li>Oder in den Browser-Einstellungen bei <b>Downloads</b> „<b>Vor dem Download fragen, wo gespeichert werden soll</b>“
+                einschalten (Firefox: „Jedes Mal nachfragen, wo eine Datei gespeichert werden soll“).</li>
+            </ul>
+          </div>
           <a class="alt-link" href="downloads/SoundBoard.exe" download>oder portable .exe ohne Installation (0,5 MB)</a>
           <details class="hash">
             <summary>SHA-256-Prüfsummen</summary>
@@ -895,6 +935,13 @@ footer a:hover { color: var(--text); }
           <div class="answer"><p>Windows SmartScreen warnt bei neuen Programmen, die noch nicht digital signiert sind. Über
             „Weitere Informationen“ → „Trotzdem ausführen“ startest du das Setup. Wer sichergehen will, vergleicht die
             SHA-256-Prüfsumme im Download-Bereich, z. B. mit <code>Get-FileHash .\FunctionBoard-Setup.exe</code> in PowerShell.</p></div>
+        </details>
+        <details class="reveal">
+          <summary>Kann ich aussuchen, wo die Datei gespeichert wird?</summary>
+          <div class="answer"><p>Ja. Klick neben „installieren“ auf <b>„Speichern unter …“</b> – dann fragt dein Browser nach dem
+            Ordner (Chrome, Edge, Opera). In anderen Browsern geht es per Rechtsklick auf den Download-Knopf →
+            „Link speichern unter …“. Wohin das Programm selbst installiert wird, wählst du später im Setup unter
+            „Ziel-Ordner wählen“.</p></div>
         </details>
         <details class="reveal">
           <summary>Wie bekomme ich Updates?</summary>
@@ -1079,6 +1126,71 @@ footer a:hover { color: var(--text); }
       else if (!entry.isIntersecting && demoTimer) { clearInterval(demoTimer); demoTimer = null; }
     }).observe(miniKey);
   }
+
+  /* „Speichern unter …“: Ort selbst wählen (File System Access API), mit Fortschritt; sonst Hilfe anzeigen */
+  const canPick = typeof window.showSaveFilePicker === "function";
+  function mb(bytes) { return (bytes / 1048576).toFixed(1).replace(".", ","); }
+  document.querySelectorAll(".save-as").forEach(button => button.addEventListener("click", async () => {
+    const card = button.closest(".dl");
+    const status = card.querySelector(".save-status"), bar = status.querySelector("i"), text = status.querySelector("span");
+    const hint = card.querySelector(".save-hint");
+    if (!(typeof window.showSaveFilePicker === "function")) {
+      hint.hidden = !hint.hidden;
+      return;
+    }
+    let handle;
+    try {
+      handle = await window.showSaveFilePicker({
+        suggestedName: button.dataset.name, id: "boards-download", startIn: "desktop",
+        types: [{ description: "Windows-Programm", accept: { "application/x-msdownload": [".exe"] } }],
+      });
+    } catch (error) {
+      if (error && error.name === "AbortError") return;   // abgebrochen – nichts tun
+      hint.hidden = false;
+      return;
+    }
+    status.hidden = false;
+    status.classList.remove("ok", "err");
+    button.disabled = true;
+    bar.style.width = "0%";
+    text.textContent = "Wird gespeichert …";
+    let writable;
+    try {
+      const response = await fetch(button.dataset.file, { cache: "no-store" });
+      if (!response.ok || !response.body) throw new Error("HTTP " + response.status);
+      const total = Number(response.headers.get("Content-Length")) || Number(button.dataset.size) || 0;
+      writable = await handle.createWritable();
+      const reader = response.body.getReader();
+      let received = 0;
+      for (;;) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        await writable.write(value);
+        received += value.length;
+        if (total) {
+          bar.style.width = Math.min(100, received / total * 100).toFixed(1) + "%";
+          text.textContent = "Wird gespeichert … " + mb(received) + " von " + mb(total) + " MB";
+        }
+      }
+      await writable.close();
+      bar.style.width = "100%";
+      status.classList.add("ok");
+      text.textContent = "✓ Gespeichert als „" + handle.name + "“ – doppelklicke die Datei, um zu installieren.";
+    } catch (error) {
+      try { if (writable) await writable.abort(); } catch (_) { /* egal */ }
+      status.classList.add("err");
+      text.textContent = "Speichern hat nicht geklappt – die Datei wird stattdessen normal in deinen Download-Ordner geladen.";
+      const link = document.createElement("a");
+      link.href = button.dataset.file;
+      link.download = button.dataset.name;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } finally {
+      button.disabled = false;
+    }
+  }));
+  if (!canPick) document.querySelectorAll(".save-as").forEach(b => b.title = "Zeigt, wie du den Speicherort wählst");
 
   /* Prüfsumme kopieren */
   document.querySelectorAll(".copy").forEach(button => button.addEventListener("click", async () => {
