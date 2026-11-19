@@ -1,22 +1,24 @@
 {
   "function_board": {
-    "version": "2.4.0",
+    "version": "2.5.0",
+    "msi_url": "https://leocrime271-create.github.io/function-board/downloads/FunctionBoard.msi",
+    "msi_sha256": "a23be2ff2298292b51d9799d0ead633cc3c7c9c9d3b7921eb674cc3135dadc0a",
     "setup_url": "https://leocrime271-create.github.io/function-board/downloads/FunctionBoard-Setup.exe",
-    "setup_sha256": "0fcf43ca6340e6887eb3a5ce8c23ed5c8ac81092bc97848f8edf581a3c7143fb",
+    "setup_sha256": "d142d0088de9b203030f602e160e363f8e03292753cadc407ac9a0699e7d618a",
     "exe_url": "https://leocrime271-create.github.io/function-board/downloads/FunctionBoard.exe",
-    "exe_sha256": "7e614e746c307b1b7c37aaf47471635974fdfd82b83046797b8aa32a7251d20a",
+    "exe_sha256": "af5fb8f1851243b1f88f28c8c4cdcbdfd7e9f6a407d95e97b061a02c2b79e99d",
     "notes": {
       "de": [
-        "Das Setup installiert jetzt alles: Programm mit allen Bibliotheken, Anleitung und auf Wunsch den kompletten Quellcode",
-        "Startet schneller – kein Entpacken in einen Temp-Ordner mehr",
-        "„Function Board – Anleitung“ im Startmenü",
-        "Behoben: Setup und Deinstallation können die laufende App jetzt sauber beenden"
+        "Echter Windows Installer (.msi): installiert für alle Benutzer nach C:\\Programme, Ordner frei wählbar",
+        "Deine bisherige Installation wird automatisch übernommen – Tasten, Einstellungen und Autostart bleiben",
+        "Windows fragt beim Installieren einmal nach Administratorrechten – bitte mit „Ja“ bestätigen",
+        "Deinstallieren entfernt jetzt auch den Autostart-Eintrag"
       ],
       "en": [
-        "The setup now installs everything: program with all libraries, manual and optionally the full source code",
-        "Starts faster – no more unpacking into a temp folder",
-        "“Function Board – Manual” in the Start menu",
-        "Fixed: setup and uninstall can now close the running app cleanly"
+        "Real Windows Installer (.msi): installs for all users into C:\\Program Files, folder of your choice",
+        "Your current installation is taken over automatically – keys, settings and autostart stay",
+        "Windows asks once for administrator rights while installing – please confirm with “Yes”",
+        "Uninstalling now also removes the autostart entry"
       ]
     }
   },
