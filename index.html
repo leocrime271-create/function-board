@@ -854,7 +854,7 @@ footer a:hover { color: var(--text); }
             deine Tasten bleiben.</p>
           <div class="dl-actions">
             <a class="btn btn-primary" href="downloads/FunctionBoard.msi" download><svg><use href="#i-download"/></svg>Function Board installieren</a>
-            <button class="btn save-as" type="button" data-file="downloads/FunctionBoard.msi" data-name="FunctionBoard.msi" data-size="45388156">
+            <button class="btn save-as" type="button" data-file="downloads/FunctionBoard.msi" data-name="FunctionBoard.msi" data-size="45453788">
               <svg><use href="#i-folder-save"/></svg>Speichern unter …</button>
           </div>
           <div class="save-status" hidden><div class="save-bar"><i></i></div><span></span></div>
@@ -870,9 +870,9 @@ footer a:hover { color: var(--text); }
           <details class="hash">
             <summary>SHA-256-Prüfsummen</summary>
             <div class="hash-label">FunctionBoard.msi</div>
-            <div class="hash-row"><code>a23be2ff2298292b51d9799d0ead633cc3c7c9c9d3b7921eb674cc3135dadc0a</code><button class="copy" type="button">Kopieren</button></div>
+            <div class="hash-row"><code>a84b5a930a3b20bf04b977c518c7507eb8d0fd149531f1e23f4f887b640a400e</code><button class="copy" type="button">Kopieren</button></div>
             <div class="hash-label">FunctionBoard.exe (portabel)</div>
-            <div class="hash-row"><code>af5fb8f1851243b1f88f28c8c4cdcbdfd7e9f6a407d95e97b061a02c2b79e99d</code><button class="copy" type="button">Kopieren</button></div>
+            <div class="hash-row"><code>c30cf35906546f285721ae5dd4a9b7e3a22f315b3afd069551e19bcdcc34b356</code><button class="copy" type="button">Kopieren</button></div>
           </details>
         </article>
         <article class="dl reveal" style="--d:.08s; --tint: rgba(34, 211, 238, .8)">
@@ -881,13 +881,13 @@ footer a:hover { color: var(--text); }
             <div><h3>Sound Board</h3><p>Lautstärke pro App, wie am Mischpult</p></div>
           </div>
           <ul class="meta">
-            <li>Version 2.0</li><li>3 MB</li><li>Windows 10 &amp; 11</li>
+            <li>Version 2.0</li><li>.msi · 2 MB</li><li>Windows 10 &amp; 11</li>
           </ul>
-          <p class="news"><b>Neu in 2.0:</b> Einrichtungs-Assistent, drei Designs (MK II, Glas, Arcade) und Englisch als zweite
-            Sprache – und jetzt auch mit richtigem Installer.</p>
+          <p class="news"><b>Neu:</b> Jetzt auch als echter Windows Installer (.msi) – für alle Benutzer nach C:\Programme,
+            Ordner frei wählbar, auf Wunsch mit Quellcode. Dazu Einrichtungs-Assistent, drei Designs und Englisch.</p>
           <div class="dl-actions">
-            <a class="btn btn-primary" href="downloads/SoundBoard-Setup.exe" download><svg><use href="#i-download"/></svg>Sound Board installieren</a>
-            <button class="btn save-as" type="button" data-file="downloads/SoundBoard-Setup.exe" data-name="SoundBoard-Setup.exe" data-size="3087320">
+            <a class="btn btn-primary" href="downloads/SoundBoard.msi" download><svg><use href="#i-download"/></svg>Sound Board installieren</a>
+            <button class="btn save-as" type="button" data-file="downloads/SoundBoard.msi" data-name="SoundBoard.msi" data-size="1957888">
               <svg><use href="#i-folder-save"/></svg>Speichern unter …</button>
           </div>
           <div class="save-status" hidden><div class="save-bar"><i></i></div><span></span></div>
@@ -902,8 +902,8 @@ footer a:hover { color: var(--text); }
           <a class="alt-link" href="downloads/SoundBoard.exe" download>oder portable .exe ohne Installation (0,5 MB)</a>
           <details class="hash">
             <summary>SHA-256-Prüfsummen</summary>
-            <div class="hash-label">SoundBoard-Setup.exe</div>
-            <div class="hash-row"><code>a8656b06cbdba8e623e535e1c1f4fff9d2dbb5e6af9619b2609641c9cd30ecf1</code><button class="copy" type="button">Kopieren</button></div>
+            <div class="hash-label">SoundBoard.msi</div>
+            <div class="hash-row"><code>92bfa3c0753d196e432edab1570b7994a1a1e1a7865437275c9861ded1b8c283</code><button class="copy" type="button">Kopieren</button></div>
             <div class="hash-label">SoundBoard.exe (portabel)</div>
             <div class="hash-row"><code>4b7940b25ae7bb3bef99d40906277e41dadf45508f98dabc7e0b0a0c77b17948</code><button class="copy" type="button">Kopieren</button></div>
           </details>
@@ -961,7 +961,7 @@ footer a:hover { color: var(--text); }
         <article class="card step reveal">
           <div class="icon" style="--c:var(--blue)"><svg><use href="#i-download"/></svg></div>
           <h3>Herunterladen</h3>
-          <p>Lade den Installer herunter – <b>FunctionBoard.msi</b> bzw. <b>SoundBoard-Setup.exe</b>. Er bringt alles mit:
+          <p>Lade den Installer herunter – <b>FunctionBoard.msi</b> bzw. <b>SoundBoard.msi</b>. Er bringt alles mit:
             Programm, Bibliotheken, Symbole, Anleitung und auf Wunsch den Quellcode.</p>
         </article>
         <article class="card step reveal" style="--d:.06s">
@@ -1044,10 +1044,12 @@ footer a:hover { color: var(--text); }
             löschen; neue Versionen holt sich die App selbst.</p></div>
         </details>
         <details class="reveal">
-          <summary>Ich habe schon Version 2.3 oder 2.4 – was passiert?</summary>
-          <div class="answer"><p>Du musst nichts tun: Das Update-Popup bringt dich automatisch zum neuen Installer. Oder du
-            installierst einfach die <code>FunctionBoard.msi</code> – sie entfernt die alte Version selbst. Deine Tasten,
-            Einstellungen und der Autostart bleiben erhalten.</p></div>
+          <summary>Ich habe schon eine ältere Version – was passiert?</summary>
+          <div class="answer"><p><b>Function Board 2.3 oder 2.4:</b> Du musst nichts tun – das Update-Popup bringt dich
+            automatisch zum neuen Installer. Oder du installierst einfach die <code>FunctionBoard.msi</code>, sie entfernt die
+            alte Version selbst.</p>
+            <p><b>Sound Board:</b> Installiere die <code>SoundBoard.msi</code> – sie beendet ein laufendes Sound Board kurz und
+            ersetzt ein altes Setup. In beiden Fällen bleiben Tasten, Kanäle, Einstellungen und der Autostart erhalten.</p></div>
         </details>
         <details class="reveal">
           <summary>Wie bekomme ich Updates?</summary>
@@ -1058,9 +1060,9 @@ footer a:hover { color: var(--text); }
         </details>
         <details class="reveal">
           <summary>Brauche ich Administratorrechte?</summary>
-          <div class="answer"><p>Nur zum Installieren und für Updates des Function Board: Wie jedes richtige Programm kommt es
-            für alle Benutzer nach <code>C:\Programme</code>, dafür fragt Windows einmal nach. Die App selbst läuft ganz normal
-            ohne Administratorrechte – und das Sound Board installiert sich ohne. Ausnahme: Läuft ein Spiel als
+          <div class="answer"><p>Nur zum Installieren (und beim Function Board für Updates): Wie jedes richtige Programm kommen
+            beide Apps für alle Benutzer nach <code>C:\Programme</code>, dafür fragt Windows einmal nach. Die Apps selbst laufen
+            ganz normal ohne Administratorrechte. Ausnahme: Läuft ein Spiel als
             Administrator, muss auch das Function Board als Administrator gestartet werden, damit seine Hotkeys im Spiel ankommen.</p></div>
         </details>
         <details class="reveal">

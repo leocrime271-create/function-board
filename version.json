@@ -1,31 +1,31 @@
 {
   "function_board": {
-    "version": "2.5.0",
+    "version": "2.5.1",
     "msi_url": "https://leocrime271-create.github.io/function-board/downloads/FunctionBoard.msi",
-    "msi_sha256": "a23be2ff2298292b51d9799d0ead633cc3c7c9c9d3b7921eb674cc3135dadc0a",
+    "msi_sha256": "a84b5a930a3b20bf04b977c518c7507eb8d0fd149531f1e23f4f887b640a400e",
     "setup_url": "https://leocrime271-create.github.io/function-board/downloads/FunctionBoard-Setup.exe",
     "setup_sha256": "d142d0088de9b203030f602e160e363f8e03292753cadc407ac9a0699e7d618a",
     "exe_url": "https://leocrime271-create.github.io/function-board/downloads/FunctionBoard.exe",
-    "exe_sha256": "af5fb8f1851243b1f88f28c8c4cdcbdfd7e9f6a407d95e97b061a02c2b79e99d",
+    "exe_sha256": "c30cf35906546f285721ae5dd4a9b7e3a22f315b3afd069551e19bcdcc34b356",
     "notes": {
       "de": [
+        "Findet das Sound Board jetzt auch im neuen Programmordner (Sound Board per Windows Installer)",
         "Echter Windows Installer (.msi): installiert für alle Benutzer nach C:\\Programme, Ordner frei wählbar",
         "Deine bisherige Installation wird automatisch übernommen – Tasten, Einstellungen und Autostart bleiben",
-        "Windows fragt beim Installieren einmal nach Administratorrechten – bitte mit „Ja“ bestätigen",
-        "Deinstallieren entfernt jetzt auch den Autostart-Eintrag"
+        "Windows fragt beim Installieren einmal nach Administratorrechten – bitte mit „Ja“ bestätigen"
       ],
       "en": [
+        "Now also finds the Sound Board in its new program folder (Sound Board via Windows Installer)",
         "Real Windows Installer (.msi): installs for all users into C:\\Program Files, folder of your choice",
         "Your current installation is taken over automatically – keys, settings and autostart stay",
-        "Windows asks once for administrator rights while installing – please confirm with “Yes”",
-        "Uninstalling now also removes the autostart entry"
+        "Windows asks once for administrator rights while installing – please confirm with “Yes”"
       ]
     }
   },
   "sound_board": {
     "version": "2.0.0",
-    "setup_url": "https://leocrime271-create.github.io/function-board/downloads/SoundBoard-Setup.exe",
-    "setup_sha256": "a8656b06cbdba8e623e535e1c1f4fff9d2dbb5e6af9619b2609641c9cd30ecf1",
+    "msi_url": "https://leocrime271-create.github.io/function-board/downloads/SoundBoard.msi",
+    "msi_sha256": "92bfa3c0753d196e432edab1570b7994a1a1e1a7865437275c9861ded1b8c283",
     "exe_url": "https://leocrime271-create.github.io/function-board/downloads/SoundBoard.exe",
     "exe_sha256": "4b7940b25ae7bb3bef99d40906277e41dadf45508f98dabc7e0b0a0c77b17948"
   }
