@@ -1,20 +1,22 @@
 {
   "function_board": {
-    "version": "2.3.0",
+    "version": "2.4.0",
     "setup_url": "https://leocrime271-create.github.io/function-board/downloads/FunctionBoard-Setup.exe",
-    "setup_sha256": "706ce1582089b0d55737a72170fce43d5dfc54fa3db5f94c80df9927484cf726",
+    "setup_sha256": "0fcf43ca6340e6887eb3a5ce8c23ed5c8ac81092bc97848f8edf581a3c7143fb",
     "exe_url": "https://leocrime271-create.github.io/function-board/downloads/FunctionBoard.exe",
-    "exe_sha256": "121e58265a892f940f2842a1d81401dad290dd18e2d9c66f7ac18d6e7e7936c5",
+    "exe_sha256": "7e614e746c307b1b7c37aaf47471635974fdfd82b83046797b8aa32a7251d20a",
     "notes": {
       "de": [
-        "Tasten per Drag & Drop auf andere Seiten ziehen (Reiter, Rand oder „+“)",
-        "Updates direkt in der App – mit Neuerungen und Installation auf Knopfdruck",
-        "Richtiger Installer mit Startmenü, Desktop-Symbol und Deinstallation unter „Apps“"
+        "Das Setup installiert jetzt alles: Programm mit allen Bibliotheken, Anleitung und auf Wunsch den kompletten Quellcode",
+        "Startet schneller – kein Entpacken in einen Temp-Ordner mehr",
+        "„Function Board – Anleitung“ im Startmenü",
+        "Behoben: Setup und Deinstallation können die laufende App jetzt sauber beenden"
       ],
       "en": [
-        "Drag keys to other pages (tabs, edges or “+”)",
-        "Updates right inside the app – with release notes and one-click install",
-        "Real installer with Start menu, desktop icon and uninstall via “Apps”"
+        "The setup now installs everything: program with all libraries, manual and optionally the full source code",
+        "Starts faster – no more unpacking into a temp folder",
+        "“Function Board – Manual” in the Start menu",
+        "Fixed: setup and uninstall can now close the running app cleanly"
       ]
     }
   },
