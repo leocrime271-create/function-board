@@ -274,6 +274,30 @@ kbd {
 .card-wide img { width: 190px; margin: -10px -6px -30px 0; filter: drop-shadow(0 20px 30px rgba(0, 0, 0, .6)); transform: rotate(-4deg); transition: transform .5s var(--spring); }
 .card-wide:hover img { transform: rotate(0) scale(1.03); }
 
+/* Einrichtung (2.2) */
+.setup {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr); gap: 48px; align-items: center;
+  margin-top: 56px; padding: 48px; border-radius: 30px; border: 1px solid var(--line);
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgba(139, 92, 246, .14), transparent 60%),
+    radial-gradient(60% 80% at 0% 100%, rgba(34, 211, 238, .08), transparent 60%),
+    rgba(255, 255, 255, .015);
+}
+.setup h2 { font-size: clamp(30px, 3.4vw, 46px); }
+.new-tag { font: 700 11px/1 var(--mono); letter-spacing: .14em; color: white; padding: 6px 10px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--violet), #6d5dfc); }
+.setup-steps { margin: 22px 0 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 10px; }
+.setup-steps li { counter-increment: s; display: grid; grid-template-columns: 30px 1fr; gap: 12px; color: var(--muted); font-size: 15px; }
+.setup-steps li::before {
+  content: counter(s); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  font: 700 12px/1 var(--mono); color: var(--violet2); background: rgba(139, 92, 246, .14); border: 1px solid rgba(139, 92, 246, .35);
+}
+.setup-steps b { color: var(--text); font-weight: 600; }
+.setup-note { margin: 20px 0 0; color: var(--faint); font-size: 14px; }
+.setup-shot img { width: 100%; border-radius: 18px; filter: drop-shadow(0 40px 60px rgba(0, 0, 0, .65));
+  transform: perspective(1600px) rotateY(-8deg) rotateX(3deg); transition: transform .8s var(--spring); }
+.setup-shot:hover img { transform: perspective(1600px) rotateY(0) rotateX(0); }
+
 /* Sound-Board-Designs */
 .switch {
   display: inline-flex; gap: 4px; padding: 4px; border-radius: 14px; margin-bottom: 22px;
@@ -431,7 +455,8 @@ footer a:hover { color: var(--text); }
   .hero .wrap { grid-template-columns: 1fr; }
   .stage { padding-top: 10px; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .duo, .faq-layout { grid-template-columns: 1fr; }
+  .duo, .faq-layout, .setup { grid-template-columns: 1fr; }
+  .setup { padding: 34px 24px; }
   .faq-layout .section-head { position: static; }
   .sb-layout .list { grid-template-columns: repeat(2, 1fr); }
   .duo { padding: 40px 28px; }
@@ -514,7 +539,7 @@ footer a:hover { color: var(--text); }
   <section class="hero">
     <div class="wrap">
       <div>
-        <a class="pill reveal" href="#download"><b>NEU</b>Function Board 2.1 – neues Logo &amp; Schnellsuche</a>
+        <a class="pill reveal" href="#einrichtung"><b>NEU</b>Function Board 2.2 – Einrichtungs-Assistent &amp; drei Designs</a>
         <h1 class="reveal" style="--d:.06s">Deine Tasten.<br>Dein Sound.<br><span class="grad">Ein Klick.</span></h1>
         <p class="lead reveal" style="--d:.12s">Zwei kostenlose Apps für Windows: Das <b>Function Board</b> ist dein digitales Stream Deck –
           Programme, Websites, Hotkeys und Textbausteine auf Knopfdruck. Das <b>Sound Board</b> regelt die Lautstärke
@@ -562,12 +587,23 @@ footer a:hover { color: var(--text); }
           jede Taste leuchtet beim Drücken – und mit einem Hotkey klappt alles sogar mitten im Spiel.</p>
       </div>
 
-      <div class="shot-wrap reveal">
-        <div class="glow" aria-hidden="true"></div>
-        <figure class="window" style="margin:0">
-          <div class="window-bar"><img src="assets/favicon.png" alt="" width="16" height="16">Function Board<span class="ctl" aria-hidden="true">─ &nbsp;▢ &nbsp;✕</span></div>
-          <img src="assets/fb-3d.webp" width="1440" height="860" alt="Das Function Board: ein 3D-Gerät mit 15 bunten Tasten wie Chrome, YouTube, Twitch, Play/Pause und Explorer" loading="lazy" decoding="async">
-        </figure>
+      <div class="reveal">
+        <div class="switch" role="group" aria-label="Design des Function Boards" data-stack="fb-designs">
+          <button type="button" aria-pressed="true" data-design="mk2">MK II</button>
+          <button type="button" aria-pressed="false" data-design="glass">Glas</button>
+          <button type="button" aria-pressed="false" data-design="arcade">Arcade</button>
+        </div>
+        <div class="shot-wrap">
+          <div class="glow" aria-hidden="true"></div>
+          <figure class="window" style="margin:0">
+            <div class="window-bar"><img src="assets/favicon.png" alt="" width="16" height="16">Function Board<span class="ctl" aria-hidden="true">─ &nbsp;▢ &nbsp;✕</span></div>
+            <div class="design-stack" id="fb-designs">
+              <img class="active" data-design="mk2" src="assets/fb-mk2.webp" width="1440" height="860" alt="Das Function Board im Design MK II: ein dunkles 3D-Gerät mit 15 bunten Tasten wie Chrome, YouTube, Twitch, Play/Pause und Explorer" loading="lazy" decoding="async">
+              <img data-design="glass" src="assets/fb-glass.webp" width="1440" height="860" alt="Das Function Board im Design Glas: nachtblaues Gerät mit durchscheinenden Glastasten" loading="lazy" decoding="async">
+              <img data-design="arcade" src="assets/fb-arcade.webp" width="1440" height="860" alt="Das Function Board im Design Arcade: fast schwarz, Tasten mit Neon-Leuchtkanten" loading="lazy" decoding="async">
+            </div>
+          </figure>
+        </div>
       </div>
 
       <div class="grid grid-3 features">
@@ -615,10 +651,32 @@ footer a:hover { color: var(--text); }
           <p>Lauter, leiser, stumm, Profil wechseln – als Taste, mit Live-Lautstärke direkt auf dem Display.</p>
         </article>
         <article class="card reveal" style="--d:.12s">
-          <div class="icon" style="--c:var(--pink)"><svg><use href="#i-check"/></svg></div>
-          <h3>Läuft einfach</h3>
-          <p>Eine einzige Datei, kein Installer. Startet auf Wunsch mit Windows und wartet unauffällig im Infobereich.</p>
+          <div class="icon" style="--c:var(--pink)"><svg><use href="#i-palette"/></svg></div>
+          <h3>Drei Designs, zwei Sprachen</h3>
+          <p>MK II, Glas oder Arcade – passend zum Sound Board, Wechsel sofort. Alles auf Deutsch oder Englisch.
+            Eine einzige Datei, kein Installer.</p>
         </article>
+      </div>
+
+      <div class="setup reveal" id="einrichtung">
+        <div>
+          <span class="eyebrow"><span class="new-tag">NEU IN 2.2</span></span>
+          <h2>In einer Minute eingerichtet.</h2>
+          <p class="sub" style="font-size:17px">Beim ersten Start führt dich ein Assistent durch fünf kurze Schritte –
+            mit sanften Animationen und einer Live-Vorschau.</p>
+          <ol class="setup-steps">
+            <li><span><b>Sprache</b> – Deutsch oder English</span></li>
+            <li><span><b>Wofür?</b> – Zocken, Streaming, Musik oder Arbeit: passende Tasten werden angelegt, Programme nur, wenn sie auf deinem PC sind</span></li>
+            <li><span><b>Design</b> – MK II, Glas oder Arcade, live in der Vorschau</span></li>
+            <li><span><b>Extras</b> – Autostart, Overlay, 3D, Logos und auf Wunsch eine Sound-Board-Seite</span></li>
+            <li><span><b>Fertig</b> – deine erste Seite und die wichtigsten Tastenkürzel</span></li>
+          </ol>
+          <p class="setup-note">Später jederzeit erneut: Einstellungen → „Einrichtungs-Assistent erneut starten“.
+            Wer schon Tasten hat, behält sie – „Meine Tasten behalten“ ist dann vorausgewählt.</p>
+        </div>
+        <div class="setup-shot">
+          <img src="assets/fb-setup.webp" width="1092" height="712" alt="Der Einrichtungs-Assistent beim Schritt Design: drei Vorschauen für MK II, Glas und Arcade" loading="lazy" decoding="async">
+        </div>
       </div>
     </div>
   </section>
@@ -635,7 +693,7 @@ footer a:hover { color: var(--text); }
 
       <div class="sb-layout">
         <div class="reveal">
-          <div class="switch" role="group" aria-label="Design des Sound Boards">
+          <div class="switch" role="group" aria-label="Design des Sound Boards" data-stack="sb-designs">
             <button type="button" aria-pressed="true" data-design="mk2">MK II</button>
             <button type="button" aria-pressed="false" data-design="glass">Glas</button>
             <button type="button" aria-pressed="false" data-design="arcade">Arcade</button>
@@ -644,7 +702,7 @@ footer a:hover { color: var(--text); }
             <div class="glow" aria-hidden="true"></div>
             <figure class="window" style="margin:0">
               <div class="window-bar"><img src="assets/sound-board.png" alt="" width="16" height="16">Sound Board<span class="ctl" aria-hidden="true">─ &nbsp;▢ &nbsp;✕</span></div>
-              <div class="design-stack">
+              <div class="design-stack" id="sb-designs">
                 <img class="active" data-design="mk2" src="assets/sb-mk2.webp" width="1092" height="548" alt="Sound Board im Design MK II: Drehregler mit LED-Kränzen für Gesamt, Game, Chat, Musik und Browser" loading="lazy" decoding="async">
                 <img data-design="glass" src="assets/sb-glass.webp" width="1092" height="548" alt="Sound Board im Design Glas: nachtblaue Glaskarten mit Ringen im Farbverlauf" loading="lazy" decoding="async">
                 <img data-design="arcade" src="assets/sb-arcade.webp" width="1092" height="548" alt="Sound Board im Design Arcade: fast schwarz mit Neon-Ringen und eckigen Karten" loading="lazy" decoding="async">
@@ -728,13 +786,14 @@ footer a:hover { color: var(--text); }
             <div><h3>Function Board</h3><p>Dein digitales Stream Deck</p></div>
           </div>
           <ul class="meta">
-            <li>Version 2.1</li><li>51 MB</li><li>Windows 10 &amp; 11 · 64-Bit</li>
+            <li>Version 2.2</li><li>51 MB</li><li>Windows 10 &amp; 11 · 64-Bit</li>
           </ul>
-          <p class="news"><b>Neu in 2.1:</b> neues Logo, Schnellsuche mit <kbd>Strg</kbd>+<kbd>K</kbd> und eine Hilfe mit allen Tastenkürzeln (<kbd>F1</kbd>).</p>
+          <p class="news"><b>Neu in 2.2:</b> Einrichtungs-Assistent, drei Designs (MK II, Glas, Arcade) und Englisch als zweite Sprache.
+            Seit 2.1: Schnellsuche mit <kbd>Strg</kbd>+<kbd>K</kbd> und Hilfe mit <kbd>F1</kbd>.</p>
           <a class="btn btn-primary" href="downloads/FunctionBoard.exe" download><svg><use href="#i-download"/></svg>FunctionBoard.exe herunterladen</a>
           <details class="hash">
             <summary>SHA-256-Prüfsumme</summary>
-            <div class="hash-row"><code>8b065145b6ee71e34b70a0e2c97564e5f69de9c0a6c3c9abaa2e57f5e4578558</code><button class="copy" type="button">Kopieren</button></div>
+            <div class="hash-row"><code>dc283db3f6e7a0541e311f9083e8f5094f805bf692ccb9f90898c3c1a71cc9ca</code><button class="copy" type="button">Kopieren</button></div>
           </details>
         </article>
         <article class="dl reveal" style="--d:.08s; --tint: rgba(34, 211, 238, .8)">
@@ -783,8 +842,8 @@ footer a:hover { color: var(--text); }
         <article class="card step reveal" style="--d:.12s">
           <div class="icon" style="--c:var(--green)"><svg><use href="#i-check"/></svg></div>
           <h3>Loslegen</h3>
-          <p>Das Sound Board führt dich mit einem kurzen Assistenten durch die Einrichtung. Im Function Board legst du
-            mit „+“ deine erste Taste an. Beide laufen danach im Infobereich weiter.</p>
+          <p>Beide Apps führen dich mit einem kurzen Assistenten durch die Einrichtung – Sprache, Einsatz, Design.
+            Danach laufen sie im Infobereich weiter.</p>
         </article>
       </div>
     </div>
@@ -845,7 +904,7 @@ footer a:hover { color: var(--text); }
   <div class="wrap">
     <a class="brand" href="#top">
       <span class="brand-icons"><img src="assets/function-board.png" alt="" width="30" height="30" loading="lazy"><img src="assets/sound-board.png" alt="" width="30" height="30" loading="lazy"></span>
-      <span>Function Board 2.1 · Sound Board 2.0</span>
+      <span>Function Board 2.2 · Sound Board 2.0</span>
     </a>
     <span>Kostenlos für Windows 10 und 11</span>
     <a href="#top">Nach oben ↑</a>
@@ -955,12 +1014,15 @@ footer a:hover { color: var(--text); }
   });
 
   /* Sound Board: Design umschalten */
-  const switchButtons = document.querySelectorAll(".switch button");
+  document.querySelectorAll(".switch[data-stack]").forEach(group => {
+    const buttons = group.querySelectorAll("button");
+    const images = document.querySelectorAll("#" + group.dataset.stack + " img");
+    buttons.forEach(button => button.addEventListener("click", () => {
+      buttons.forEach(b => b.setAttribute("aria-pressed", String(b === button)));
+      images.forEach(img => img.classList.toggle("active", img.dataset.design === button.dataset.design));
+    }));
+  });
   const designImages = document.querySelectorAll(".design-stack img");
-  switchButtons.forEach(button => button.addEventListener("click", () => {
-    switchButtons.forEach(b => b.setAttribute("aria-pressed", String(b === button)));
-    designImages.forEach(img => img.classList.toggle("active", img.dataset.design === button.dataset.design));
-  }));
   /* Bilder der anderen Designs vorladen, sobald der Abschnitt naht */
   designImages.forEach(img => { if (img.loading === "lazy") img.loading = "eager"; });
 
