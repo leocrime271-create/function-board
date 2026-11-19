@@ -392,6 +392,14 @@ kbd {
 .news { margin: 0 0 26px; color: var(--muted); font-size: 15px; }
 .news b { color: var(--text); font-weight: 600; }
 .dl .btn { align-self: flex-start; margin-top: auto; }
+.alt-link { margin-top: 12px; font-size: 14px; color: var(--muted); text-decoration: none; width: fit-content;
+  border-bottom: 1px dashed rgba(255, 255, 255, .25); transition: color .2s, border-color .2s; }
+.alt-link:hover { color: var(--text); border-color: rgba(255, 255, 255, .6); }
+.hash-label { margin-top: 10px; font: 500 12px/1 var(--mono); color: var(--faint); }
+.installer-shot { margin: 34px auto 0; max-width: 640px; text-align: center; }
+.installer-shot img { width: 100%; border-radius: 12px; border: 1px solid var(--line2);
+  box-shadow: 0 40px 80px -24px rgba(0, 0, 0, .8), 0 0 60px -10px rgba(124, 58, 237, .35); }
+.installer-shot figcaption { margin-top: 14px; color: var(--faint); font-size: 14px; }
 .hash { margin-top: 18px; font-size: 13px; color: var(--faint); }
 .hash summary { cursor: pointer; width: fit-content; list-style: none; }
 .hash summary::-webkit-details-marker { display: none; }
@@ -539,7 +547,7 @@ footer a:hover { color: var(--text); }
   <section class="hero">
     <div class="wrap">
       <div>
-        <a class="pill reveal" href="#einrichtung"><b>NEU</b>Function Board 2.2 – Einrichtungs-Assistent &amp; drei Designs</a>
+        <a class="pill reveal" href="#download"><b>NEU</b>Function Board 2.3 – Installer, Updates &amp; Tasten zwischen Seiten ziehen</a>
         <h1 class="reveal" style="--d:.06s">Deine Tasten.<br>Dein Sound.<br><span class="grad">Ein Klick.</span></h1>
         <p class="lead reveal" style="--d:.12s">Zwei kostenlose Apps für Windows: Das <b>Function Board</b> ist dein digitales Stream Deck –
           Programme, Websites, Hotkeys und Textbausteine auf Knopfdruck. Das <b>Sound Board</b> regelt die Lautstärke
@@ -551,7 +559,7 @@ footer a:hover { color: var(--text); }
         <ul class="facts reveal" style="--d:.24s">
           <li><svg><use href="#i-check"/></svg>Windows 10 &amp; 11</li>
           <li><svg><use href="#i-check"/></svg>Kostenlos</li>
-          <li><svg><use href="#i-check"/></svg>Ohne Installation</li>
+          <li><svg><use href="#i-check"/></svg>Automatische Updates</li>
           <li><svg><use href="#i-check"/></svg>Keine Admin-Rechte</li>
         </ul>
       </div>
@@ -636,9 +644,9 @@ footer a:hover { color: var(--text); }
         </article>
         <article class="card reveal" style="--d:.06s">
           <div class="icon" style="--c:var(--yellow)"><svg><use href="#i-search"/></svg></div>
-          <h3>Schnell bedient</h3>
-          <p>Seiten wie Tabs, Tasten per Drag &amp; Drop sortieren, Dateien und Links aufs Gerät ziehen,
-            <kbd>Strg</kbd>+<kbd>Z</kbd> zum Rückgängigmachen und <kbd>Strg</kbd>+<kbd>K</kbd> für die Schnellsuche.</p>
+          <h3>Ziehen, wohin du willst</h3>
+          <p>Tasten per Drag &amp; Drop sortieren – auch auf andere Seiten: auf einen Reiter, an den Rand oder auf „+“.
+            Dazu <kbd>Strg</kbd>+<kbd>Z</kbd> zum Rückgängigmachen und <kbd>Strg</kbd>+<kbd>K</kbd> für die Schnellsuche.</p>
         </article>
         <article class="card reveal">
           <div class="icon" style="--c:var(--orange)"><svg><use href="#i-cube"/></svg></div>
@@ -654,7 +662,7 @@ footer a:hover { color: var(--text); }
           <div class="icon" style="--c:var(--pink)"><svg><use href="#i-palette"/></svg></div>
           <h3>Drei Designs, zwei Sprachen</h3>
           <p>MK II, Glas oder Arcade – passend zum Sound Board, Wechsel sofort. Alles auf Deutsch oder Englisch.
-            Eine einzige Datei, kein Installer.</p>
+            Neue Versionen meldet die App selbst.</p>
         </article>
       </div>
 
@@ -777,7 +785,8 @@ footer a:hover { color: var(--text); }
     <div class="wrap">
       <div class="section-head" style="text-align:center">
         <h2 class="reveal" style="margin-inline:auto">Hol dir beide. Kostenlos.</h2>
-        <p class="sub reveal" style="margin-inline:auto">Jede App ist eine einzelne .exe-Datei – herunterladen, starten, fertig.</p>
+        <p class="sub reveal" style="margin-inline:auto">Mit richtigem Installer – Startmenü, Desktop-Symbol, Deinstallation
+          unter „Apps“ und automatische Updates. Ganz ohne Administratorrechte.</p>
       </div>
       <div class="downloads">
         <article class="dl reveal" style="--tint: rgba(124, 58, 237, .9)">
@@ -786,14 +795,18 @@ footer a:hover { color: var(--text); }
             <div><h3>Function Board</h3><p>Dein digitales Stream Deck</p></div>
           </div>
           <ul class="meta">
-            <li>Version 2.2</li><li>51 MB</li><li>Windows 10 &amp; 11 · 64-Bit</li>
+            <li>Version 2.3</li><li>53 MB</li><li>Windows 10 &amp; 11 · 64-Bit</li>
           </ul>
-          <p class="news"><b>Neu in 2.2:</b> Einrichtungs-Assistent, drei Designs (MK II, Glas, Arcade) und Englisch als zweite Sprache.
-            Seit 2.1: Schnellsuche mit <kbd>Strg</kbd>+<kbd>K</kbd> und Hilfe mit <kbd>F1</kbd>.</p>
-          <a class="btn btn-primary" href="downloads/FunctionBoard.exe" download><svg><use href="#i-download"/></svg>FunctionBoard.exe herunterladen</a>
+          <p class="news"><b>Neu in 2.3:</b> richtiger Installer, Updates direkt in der App und Tasten per Drag &amp; Drop auf
+            andere Seiten ziehen. Seit 2.2: Einrichtungs-Assistent, drei Designs und Englisch.</p>
+          <a class="btn btn-primary" href="downloads/FunctionBoard-Setup.exe" download><svg><use href="#i-download"/></svg>Function Board installieren</a>
+          <a class="alt-link" href="downloads/FunctionBoard.exe" download>oder portable .exe ohne Installation (51 MB)</a>
           <details class="hash">
-            <summary>SHA-256-Prüfsumme</summary>
-            <div class="hash-row"><code>dc283db3f6e7a0541e311f9083e8f5094f805bf692ccb9f90898c3c1a71cc9ca</code><button class="copy" type="button">Kopieren</button></div>
+            <summary>SHA-256-Prüfsummen</summary>
+            <div class="hash-label">FunctionBoard-Setup.exe</div>
+            <div class="hash-row"><code>706ce1582089b0d55737a72170fce43d5dfc54fa3db5f94c80df9927484cf726</code><button class="copy" type="button">Kopieren</button></div>
+            <div class="hash-label">FunctionBoard.exe (portabel)</div>
+            <div class="hash-row"><code>121e58265a892f940f2842a1d81401dad290dd18e2d9c66f7ac18d6e7e7936c5</code><button class="copy" type="button">Kopieren</button></div>
           </details>
         </article>
         <article class="dl reveal" style="--d:.08s; --tint: rgba(34, 211, 238, .8)">
@@ -802,17 +815,23 @@ footer a:hover { color: var(--text); }
             <div><h3>Sound Board</h3><p>Lautstärke pro App, wie am Mischpult</p></div>
           </div>
           <ul class="meta">
-            <li>Version 2.0</li><li>0,5 MB</li><li>Windows 10 &amp; 11</li>
+            <li>Version 2.0</li><li>3 MB</li><li>Windows 10 &amp; 11</li>
           </ul>
-          <p class="news"><b>Neu in 2.0:</b> Einrichtungs-Assistent, drei Designs (MK II, Glas, Arcade) und Englisch als zweite Sprache.</p>
-          <a class="btn btn-primary" href="downloads/SoundBoard.exe" download><svg><use href="#i-download"/></svg>SoundBoard.exe herunterladen</a>
+          <p class="news"><b>Neu in 2.0:</b> Einrichtungs-Assistent, drei Designs (MK II, Glas, Arcade) und Englisch als zweite
+            Sprache – und jetzt auch mit richtigem Installer.</p>
+          <a class="btn btn-primary" href="downloads/SoundBoard-Setup.exe" download><svg><use href="#i-download"/></svg>Sound Board installieren</a>
+          <a class="alt-link" href="downloads/SoundBoard.exe" download>oder portable .exe ohne Installation (0,5 MB)</a>
           <details class="hash">
-            <summary>SHA-256-Prüfsumme</summary>
+            <summary>SHA-256-Prüfsummen</summary>
+            <div class="hash-label">SoundBoard-Setup.exe</div>
+            <div class="hash-row"><code>a8656b06cbdba8e623e535e1c1f4fff9d2dbb5e6af9619b2609641c9cd30ecf1</code><button class="copy" type="button">Kopieren</button></div>
+            <div class="hash-label">SoundBoard.exe (portabel)</div>
             <div class="hash-row"><code>4b7940b25ae7bb3bef99d40906277e41dadf45508f98dabc7e0b0a0c77b17948</code><button class="copy" type="button">Kopieren</button></div>
           </details>
         </article>
       </div>
-      <p class="dl-note reveal">Tipp: Lege jede .exe in einen eigenen Ordner, z. B. <b>Dokumente\Function Board</b> – dort speichert sie auch ihre Einstellungen.</p>
+      <p class="dl-note reveal">Portabel: Lege die .exe in einen eigenen Ordner, z. B. <b>Dokumente\Function Board</b> – dort speichert sie auch
+        ihre Einstellungen. Installiert liegen sie in <b>%APPDATA%</b> und bleiben bei Updates erhalten.</p>
     </div>
   </section>
 
@@ -826,13 +845,14 @@ footer a:hover { color: var(--text); }
         <article class="card step reveal">
           <div class="icon" style="--c:var(--blue)"><svg><use href="#i-download"/></svg></div>
           <h3>Herunterladen</h3>
-          <p>Lade die .exe herunter und verschiebe sie in einen eigenen Ordner. Nicht nach „Programme“ – dort dürfte das
-            Function Board seine Einstellungen nicht speichern.</p>
+          <p>Lade das Setup herunter – <b>FunctionBoard-Setup.exe</b> bzw. <b>SoundBoard-Setup.exe</b>. Es installiert nur für
+            deinen Benutzer, deshalb braucht es keine Administratorrechte.</p>
         </article>
         <article class="card step reveal" style="--d:.06s">
           <div class="icon" style="--c:var(--yellow)"><svg><use href="#i-bolt"/></svg></div>
-          <h3>Starten</h3>
-          <p>Beim ersten Start kennt Windows die App noch nicht und zeigt eine Warnung. So geht's weiter:</p>
+          <h3>Installieren</h3>
+          <p>Windows kennt neue Programme noch nicht und warnt beim ersten Start. So geht's weiter – danach einfach
+            „Weiter“ und „Installieren“:</p>
           <div class="smart">
             <b>Der Computer wurde durch Windows geschützt</b>
             Klicke auf <u>Weitere Informationen</u> und dann auf
@@ -843,9 +863,13 @@ footer a:hover { color: var(--text); }
           <div class="icon" style="--c:var(--green)"><svg><use href="#i-check"/></svg></div>
           <h3>Loslegen</h3>
           <p>Beide Apps führen dich mit einem kurzen Assistenten durch die Einrichtung – Sprache, Einsatz, Design.
-            Danach laufen sie im Infobereich weiter.</p>
+            Neue Versionen meldet das Function Board danach selbst – ein Klick, und es ist aktuell.</p>
         </article>
       </div>
+      <figure class="installer-shot reveal">
+        <img src="assets/fb-installer.webp" width="612" height="471" alt="Das Setup des Function Board: Willkommensseite im dunklen Design mit Logo" loading="lazy" decoding="async">
+        <figcaption>So sieht das Setup aus – im gleichen dunklen Look wie die Apps.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -869,8 +893,14 @@ footer a:hover { color: var(--text); }
         <details class="reveal">
           <summary>Warum warnt Windows beim ersten Start?</summary>
           <div class="answer"><p>Windows SmartScreen warnt bei neuen Programmen, die noch nicht digital signiert sind. Über
-            „Weitere Informationen“ → „Trotzdem ausführen“ startest du die App. Wer sichergehen will, vergleicht die
-            SHA-256-Prüfsumme im Download-Bereich, z. B. mit <code>Get-FileHash .\FunctionBoard.exe</code> in PowerShell.</p></div>
+            „Weitere Informationen“ → „Trotzdem ausführen“ startest du das Setup. Wer sichergehen will, vergleicht die
+            SHA-256-Prüfsumme im Download-Bereich, z. B. mit <code>Get-FileHash .\FunctionBoard-Setup.exe</code> in PowerShell.</p></div>
+        </details>
+        <details class="reveal">
+          <summary>Wie bekomme ich Updates?</summary>
+          <div class="answer"><p>Ganz automatisch: Das Function Board schaut beim Start und alle paar Stunden nach, ob es eine neue
+            Version gibt. Dann erscheint ein Fenster mit den Neuerungen – „Jetzt aktualisieren“ lädt das Update, prüft es und
+            startet die App neu. Deine Tasten bleiben erhalten. Abschalten kannst du das in den Einstellungen.</p></div>
         </details>
         <details class="reveal">
           <summary>Brauche ich Administratorrechte?</summary>
@@ -880,8 +910,9 @@ footer a:hover { color: var(--text); }
         <details class="reveal">
           <summary>Wo werden meine Einstellungen gespeichert?</summary>
           <div class="answer">
-            <p><b>Function Board:</b> in der Datei <code>config.json</code> direkt neben der <code>FunctionBoard.exe</code> – so kannst du
-              alles einfach sichern oder auf einen USB-Stick mitnehmen.</p>
+            <p><b>Function Board installiert:</b> in <code>%APPDATA%\FunctionBoard\config.json</code> – bleibt bei Updates erhalten.</p>
+            <p><b>Function Board portabel:</b> in der <code>config.json</code> direkt neben der <code>FunctionBoard.exe</code> – so kannst du
+              alles einfach auf einen USB-Stick mitnehmen.</p>
             <p><b>Sound Board:</b> in <code>%APPDATA%\GruppenMixer\einstellungen.txt</code>.</p>
           </div>
         </details>
@@ -892,8 +923,10 @@ footer a:hover { color: var(--text); }
         </details>
         <details class="reveal">
           <summary>Wie werde ich sie wieder los?</summary>
-          <div class="answer"><p>Autostart in den Einstellungen ausschalten, die App über das Symbol im Infobereich beenden
-            (Rechtsklick → Beenden) und die .exe löschen. Das war's – es gibt keinen Installer, der Reste hinterlässt.</p></div>
+          <div class="answer"><p><b>Installiert:</b> Windows-Einstellungen → Apps → „Function Board“ bzw. „Sound Board“ →
+            Deinstallieren. Das Function Board fragt dabei, ob auch deine Tasten gelöscht werden sollen.</p>
+            <p><b>Portabel:</b> Autostart in den Einstellungen ausschalten, die App beenden (Rechtsklick aufs Symbol im
+            Infobereich → Beenden) und die .exe löschen.</p></div>
         </details>
       </div>
     </div>
@@ -904,7 +937,7 @@ footer a:hover { color: var(--text); }
   <div class="wrap">
     <a class="brand" href="#top">
       <span class="brand-icons"><img src="assets/function-board.png" alt="" width="30" height="30" loading="lazy"><img src="assets/sound-board.png" alt="" width="30" height="30" loading="lazy"></span>
-      <span>Function Board 2.2 · Sound Board 2.0</span>
+      <span>Function Board 2.3 · Sound Board 2.0</span>
     </a>
     <span>Kostenlos für Windows 10 und 11</span>
     <a href="#top">Nach oben ↑</a>
